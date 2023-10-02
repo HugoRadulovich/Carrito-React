@@ -1,8 +1,10 @@
 import { useContext } from 'react'
-import {products} from '../mocks/products.json'
+//  import {products} from '../mocks/products.json'
 import { CartContext } from '../context/cart'
 
-export const Products = () => {
+export const Products = ({products}) => {
+
+    console.log(products)
 
     const {addToCart, cart,deleteToCart} = useContext(CartContext)
     
@@ -18,7 +20,7 @@ export const Products = () => {
                 {
                     products?.map(product => {
                     const isProductInCart = cartChecked(product)
-                    console.log(isProductInCart)
+                    
                         return(
                         <li className="" key={product.id}>
                             <img src={product.thumbnail} alt="" className="" />
@@ -28,6 +30,7 @@ export const Products = () => {
                             isProductInCart ?  <button className="border-2 border-sky-950"  onClick={()=>deleteToCart(product)}>Borrar</button>
                                         : <button className="border-2 border-sky-950" onClick={()=>addToCart(product)}>Agregar</button>
                            }
+                         
                         </li>
                         )})
                 }

@@ -7,7 +7,6 @@ import { CartContext } from "../context/cart"
 export const Cart = () => {
 
     const {cart,deleteCart} = useContext(CartContext)
-    console.log(cart)
 
 
 
@@ -19,6 +18,7 @@ export const Cart = () => {
                         <img src={product.thumbnail} alt="" />
                         <p className="">{product.title}</p>
                         <p className="">${product.price}</p>
+                        <button className="">Cantidad: </button>
                     </li>
                 ))
             }
